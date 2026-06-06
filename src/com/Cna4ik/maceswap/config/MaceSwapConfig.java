@@ -25,13 +25,10 @@ implements ConfigData {
     public boolean hasShownDiscordPrompt = false;
     @ConfigEntry.Category(value="general")
     @ConfigEntry.Gui.EnumHandler(option=ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-    public DisplayMode displayMode = DisplayMode.ACTIONBAR;
+    public DisplayMode displayMode = DisplayMode.LYRICA_CLIENT;
     @ConfigEntry.Category(value="general")
     @ConfigEntry.Gui.EnumHandler(option=ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
     public SwapItemsMode swapItemsMode = SwapItemsMode.EVERYTHING;
-    @ConfigEntry.Category(value="general")
-    @ConfigEntry.Gui.Tooltip
-    public boolean autoRefillEnabled = false;
     @ConfigEntry.Category(value="aim")
     @ConfigEntry.Gui.Tooltip
     @ConfigEntry.BoundedDiscrete(min=1L, max=50L)
@@ -59,45 +56,22 @@ implements ConfigData {
     @ConfigEntry.Category(value="combos")
     @ConfigEntry.Gui.Tooltip
     public boolean bypassShieldEnabled = false;
-    @ConfigEntry.Category(value="combos")
+    @ConfigEntry.Category(value="combat")
     @ConfigEntry.Gui.Tooltip
-    public boolean elytraLaunchEnabled = false;
-    @ConfigEntry.Category(value="combos")
+    public boolean betterStunSlamEnabled = false;
+    @ConfigEntry.Category(value="combat")
     @ConfigEntry.Gui.Tooltip
-    public boolean elytraAutoHitEnabled = false;
-    @ConfigEntry.Category(value="combos")
+    public boolean autoReturnToWeaponEnabled = false;
+    @ConfigEntry.Category(value="hud")
     @ConfigEntry.Gui.Tooltip
-    public boolean elytraWindBurstChain = false;
-    @ConfigEntry.Category(value="combos")
+    public int saturation = 0xFF00FF;
+    @ConfigEntry.Category(value="hud")
     @ConfigEntry.Gui.Tooltip
-    public boolean tridentMaceComboEnabled = false;
-    @ConfigEntry.Category(value="combos")
-    @ConfigEntry.Gui.Tooltip
-    public boolean tridentAutoHitEnabled = false;
-    @ConfigEntry.Category(value="combos")
-    @ConfigEntry.Gui.Tooltip
-    public boolean tridentWindBurstChain = false;
-    @ConfigEntry.Category(value="misc")
-    @ConfigEntry.Gui.Tooltip
-    public boolean autoWindChargeEnabled = false;
-    @ConfigEntry.Category(value="misc")
-    @ConfigEntry.Gui.EnumHandler(option=ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-    public AutoWindChargeMode autoWindChargeMode = AutoWindChargeMode.ON_LOCK;
-    @ConfigEntry.Category(value="misc")
-    @ConfigEntry.Gui.Tooltip
-    @ConfigEntry.BoundedDiscrete(min=1L, max=10L)
-    public int windFallDistance = 2;
-    @ConfigEntry.Category(value="misc")
-    @ConfigEntry.Gui.Tooltip
-    public boolean autoMlgEnabled = false;
-    @ConfigEntry.Category(value="misc")
-    @ConfigEntry.Gui.Tooltip
-    @ConfigEntry.BoundedDiscrete(min=5L, max=50L)
-    public int mlgFallThreshold = 10;
+    public int bar = 0xFF00FF;
 
     public static enum DisplayMode {
-        ACTIONBAR("text.autoconfig.maceswap.option.displayMode.ACTIONBAR"),
-        EXCLAMATION_MARK("text.autoconfig.maceswap.option.displayMode.EXCLAMATION_MARK");
+        LYRICA_CLIENT("text.autoconfig.maceswap.option.displayMode.LYRICA_CLIENT"),
+        ACTIONBAR("text.autoconfig.maceswap.option.displayMode.ACTIONBAR");
 
         private final String key;
 
@@ -124,20 +98,4 @@ implements ConfigData {
             return this.key;
         }
     }
-
-    public static enum AutoWindChargeMode {
-        ON_LOCK("text.autoconfig.maceswap.option.autoWindChargeMode.ON_LOCK"),
-        ALWAYS("text.autoconfig.maceswap.option.autoWindChargeMode.ALWAYS");
-
-        private final String key;
-
-        private AutoWindChargeMode(String key) {
-            this.key = key;
-        }
-
-        public String toString() {
-            return this.key;
-        }
-    }
 }
-
